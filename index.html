@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur de Loto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Simulateur de Loto</h1>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="visuel">Tirage visuel</div>
+    <div class="tab" data-tab="rapide">Simulation rapide</div>
+    <div class="tab" data-tab="jackpot">Gros lot</div>
+    <div class="tab" data-tab="vie">Durée de vie</div>
+  </div>
+
+  <div class="tab-content active" id="visuel">
+    <button id="draw-button">Tirage visuel</button>
+    <div class="balls-container" id="balls-container"></div>
+  </div>
+
+  <div class="tab-content" id="rapide">
+    <h2>Simulation rapide</h2>
+    <form id="simulation-form">
+      <label>Vos 5 numéros (1-49, séparés par des virgules)</label>
+      <input type="text" id="sim-main" required>
+
+      <label>Numéro chance (1-10)</label>
+      <input type="number" id="sim-chance" required min="1" max="10">
+
+      <label>Nombre de tirages</label>
+      <input type="number" id="sim-count" required min="1" max="1000000" value="100000">
+
+      <button type="submit">Lancer la simulation</button>
+    </form>
+    <div class="progress">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div id="sim-result"></div>
+    <div id="sim-gain"></div>
+  </div>
+
+  <div class="tab-content" id="jackpot">
+    <h2>Simulation jusqu'au gros lot</h2>
+    <button id="until-jackpot-button">Lancer</button>
+    <div id="until-jackpot-result"></div>
+  </div>
+
+  <div class="tab-content" id="vie">
+    <h2>Simulation basée sur la durée de vie</h2>
+    <form id="life-form">
+      <label>Âge actuel</label>
+      <input type="number" id="age-now" required min="1" max="120">
+
+      <label>Âge de fin</label>
+      <input type="number" id="age-end" required min="1" max="150">
+
+      <label>Nombre de grilles par tirage</label>
+      <input type="number" id="grids-per-draw" required min="1" max="1000" value="1">
+
+      <button type="submit">Calculer</button>
+    </form>
+    <div id="life-result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
